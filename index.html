@@ -3,162 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Da Gia' — Architecture d'intérieur</title>
+<title>Casa Gia' — Architecture d'intérieur</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --creme: #F2EDE4; --creme-dark: #E0D8CC; --creme-mid: #C8BFB0;
-    --sable: #B8A898; --brun: #3D2B1A; --brun-mid: #6B4E35;
-    --bordeaux: #5C1F1F; --bordeaux-mid: #7A3030; --bordeaux-light: #9B4040;
-    --noir: #1A1410; --blanc: #FAF8F4;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--blanc); color: var(--noir); font-weight: 300; }
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --blanc: #FAF8F3;
+  --creme: #F0E9DF;
+  --creme2: #E5DDD2;
+  --creme3: #D4C9BA;
+  --sable: #B8AA98;
+  --brun: #3D2B1A;
+  --brun2: #5C4030;
+  --brun3: #8B6B50;
+  --bord: #5C1F1F;
+  --bord2: #7A3028;
+  --bord3: #A04040;
+  --bord4: #C4847A;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Serif Display', serif;
+  background: var(--blanc);
+  color: var(--brun);
+}
 
-  nav { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 24px 72px; background: var(--blanc); border-bottom: 0.5px solid var(--creme-dark); }
-  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 26px; font-style: italic; color: var(--brun); letter-spacing: 0.04em; }
-  .nav-links { display: flex; gap: 48px; list-style: none; }
-  .nav-links a { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brun-mid); text-decoration: none; opacity: 0.7; transition: opacity 0.3s; }
-  .nav-links a:hover { opacity: 1; color: var(--bordeaux); }
+/* TEXTURE GRAIN */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
 
-  .hero { min-height: 94vh; display: grid; grid-template-columns: 1fr 1fr; background: var(--blanc); }
-  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 72px; background: var(--creme); }
-  /* NOM DE MARQUE — modifie ici */
-  .hero-name { font-family: 'DM Serif Display', serif; font-size: 18px; font-style: italic; color: var(--brun); letter-spacing: 0.06em; margin-bottom: 14px; opacity: 0.75; }
-  .hero-eyebrow { font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
-  .hero-eyebrow::before { content: ''; width: 40px; height: 0.5px; background: var(--bordeaux); }
-  /* TITRE HERO — modifie ici */
-  .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(52px, 6vw, 84px); line-height: 1.0; color: var(--noir); margin-bottom: 32px; }
-  .hero-title em { font-style: italic; color: var(--bordeaux-mid); display: block; }
-  /* DESCRIPTION HERO — modifie ici */
-  .hero-desc { font-size: 13px; line-height: 2.1; color: var(--brun-mid); max-width: 380px; margin-bottom: 56px; }
-  .hero-cta { display: flex; align-items: center; gap: 32px; }
-  .btn-noir { display: inline-block; padding: 15px 40px; background: var(--noir); color: var(--creme); text-decoration: none; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; transition: all 0.4s; font-family: 'DM Sans', sans-serif; }
-  .btn-noir:hover { background: var(--brun); }
-  .btn-link { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brun-mid); text-decoration: none; opacity: 0.6; display: flex; align-items: center; gap: 10px; transition: opacity 0.3s; }
-  .btn-link::after { content: '→'; font-size: 14px; }
-  .btn-link:hover { opacity: 1; }
+/* NAV */
+nav {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 26px 72px; background: var(--blanc);
+  border-bottom: 0.5px solid var(--creme2);
+}
+/* NOM DANS LA NAV — modifie ici */
+.nav-logo { font-size: 24px; font-style: italic; color: var(--brun); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 48px; list-style: none; }
+.nav-links a { font-size: 14px; letter-spacing: 0.06em; color: var(--brun2); text-decoration: none; opacity: 0.7; transition: all 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--bord); }
 
-  .hero-right { background: var(--bordeaux); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 56px; }
-  .hero-right-bg { position: absolute; inset: 0; }
-  .hero-shape-1 { position: absolute; width: 55%; height: 65%; background: var(--bordeaux-mid); opacity: 0.5; top: 8%; left: 8%; border-radius: 0 0 50% 50% / 0 0 30% 30%; }
-  .hero-shape-2 { position: absolute; width: 40%; height: 45%; background: var(--bordeaux-light); opacity: 0.3; bottom: 12%; right: 10%; }
-  .hero-big-text { position: absolute; top: 40px; right: 40px; font-family: 'DM Serif Display', serif; font-size: 100px; font-style: italic; color: rgba(242,237,228,0.06); line-height: 1; }
-  /* CITATION — modifie ici */
-  .hero-card { position: relative; z-index: 1; background: rgba(242,237,228,0.08); border: 0.5px solid rgba(242,237,228,0.15); padding: 32px; width: 100%; }
-  .hero-card-tag { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--creme-dark); opacity: 0.6; margin-bottom: 16px; display: flex; justify-content: space-between; }
-  .hero-card-quote { font-family: 'DM Serif Display', serif; font-size: 18px; font-style: italic; color: var(--creme); line-height: 1.6; }
+/* HERO */
+.hero { min-height: 94vh; display: grid; grid-template-columns: 1.1fr 0.9fr; }
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 72px; background: var(--creme);
+  position: relative; overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; bottom: -80px; right: -80px;
+  width: 340px; height: 340px; border-radius: 50%;
+  background: var(--creme2); opacity: 0.6;
+}
+.hero-left::after {
+  content: '';
+  position: absolute; top: -40px; left: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: var(--bord4); opacity: 0.08;
+}
+/* SOUS-TITRE HERO — modifie ici */
+.hero-tag {
+  font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
+  color: var(--bord2); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative; z-index: 1;
+}
+.hero-tag::before { content: ''; width: 32px; height: 0.5px; background: var(--bord2); }
+/* NOM MARQUE HERO — modifie ici */
+.hero-name { font-size: 15px; font-style: italic; color: var(--brun2); letter-spacing: 0.08em; margin-bottom: 36px; opacity: 0.7; position: relative; z-index: 1; }
+/* TITRE PRINCIPAL — modifie ici */
+.hero-title { font-size: clamp(48px, 5.5vw, 80px); font-style: italic; line-height: 1.02; color: var(--brun); margin-bottom: 36px; position: relative; z-index: 1; }
+.hero-title span { color: var(--bord2); display: block; }
+/* DESCRIPTION HERO — modifie ici */
+.hero-desc { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 2; color: var(--brun2); max-width: 380px; margin-bottom: 56px; font-weight: 300; position: relative; z-index: 1; opacity: 0.85; }
+.hero-btns { display: flex; align-items: center; gap: 28px; position: relative; z-index: 1; }
+.btn-main { display: inline-block; padding: 16px 44px; background: var(--brun); color: var(--creme); font-family: 'DM Serif Display', serif; font-size: 13px; letter-spacing: 0.1em; text-decoration: none; transition: all 0.4s; }
+.btn-main:hover { background: var(--bord); }
+.btn-ghost { font-size: 13px; letter-spacing: 0.08em; color: var(--brun2); text-decoration: none; opacity: 0.6; display: flex; align-items: center; gap: 10px; transition: opacity 0.3s; }
+.btn-ghost::after { content: '→'; }
+.btn-ghost:hover { opacity: 1; }
 
-  section { padding: 100px 72px; }
-  .section-label { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-  .section-label::before { content: ''; width: 20px; height: 0.5px; background: var(--bordeaux); }
-  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 3.5vw, 52px); line-height: 1.15; color: var(--noir); margin-bottom: 24px; }
-  .section-title em { font-style: italic; color: var(--bordeaux-mid); }
+.hero-right { background: var(--bord); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 56px; }
+.hr-circle1 { position: absolute; width: 400px; height: 400px; border-radius: 50%; border: 0.5px solid rgba(240,233,223,0.1); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.hr-circle2 { position: absolute; width: 260px; height: 260px; border-radius: 50%; border: 0.5px solid rgba(240,233,223,0.08); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.hr-blob { position: absolute; width: 55%; height: 60%; background: var(--bord2); opacity: 0.5; top: 6%; left: 6%; border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+.hr-blob2 { position: absolute; width: 38%; height: 42%; background: var(--bord3); opacity: 0.25; bottom: 14%; right: 8%; border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
+.hr-watermark { position: absolute; top: 32px; right: 32px; font-size: 88px; font-style: italic; color: rgba(240,233,223,0.05); line-height: 1; }
+/* CARTE CITATION — modifie ici */
+.hr-card { position: relative; z-index: 1; background: rgba(240,233,223,0.07); border: 0.5px solid rgba(240,233,223,0.15); padding: 32px; }
+.hr-card-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.hr-card-tag { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--creme3); opacity: 0.55; }
+.hr-card-quote { font-size: 17px; font-style: italic; color: var(--creme); line-height: 1.7; }
 
-  .manifeste { background: var(--blanc); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
-  .manifeste-left { position: sticky; top: 40px; }
-  /* TEXTE MANIFESTE — modifie les paragraphes ici */
-  .manifeste-right p { font-size: 15px; line-height: 2.1; color: var(--brun-mid); margin-bottom: 24px; opacity: 0.85; }
-  .manifeste-right p:first-child { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--noir); line-height: 1.7; opacity: 1; }
-  .manifeste-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--creme-dark); margin-top: 56px; }
-  .mstat { background: var(--blanc); padding: 32px 24px; }
-  /* CHIFFRES CLÉS — modifie ici */
-  .mstat-num { font-family: 'DM Serif Display', serif; font-size: 44px; color: var(--bordeaux-mid); line-height: 1; margin-bottom: 8px; }
-  .mstat-lbl { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sable); }
+/* SECTIONS */
+section { padding: 110px 72px; }
+.lbl { font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--bord2); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
+.lbl::before { content: ''; width: 20px; height: 0.5px; background: var(--bord2); }
+.stitle { font-size: clamp(30px, 3.5vw, 50px); font-style: italic; line-height: 1.15; color: var(--brun); margin-bottom: 24px; }
+.stitle em { color: var(--bord2); }
 
-  .services { background: var(--creme); }
-  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
-  .services-note { font-size: 12px; color: var(--brun-mid); opacity: 0.5; max-width: 180px; text-align: right; line-height: 1.8; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--creme-dark); }
-  .service-card { background: var(--creme); padding: 48px 36px; border-top: 2px solid transparent; transition: border-color 0.3s; }
-  .service-card:hover { border-top-color: var(--bordeaux); }
-  .service-card.featured { background: var(--bordeaux); border-top-color: var(--bordeaux-light); }
-  .scard-num { font-family: 'DM Serif Display', serif; font-size: 40px; color: var(--creme-dark); margin-bottom: 20px; line-height: 1; }
-  .service-card.featured .scard-num { color: rgba(242,237,228,0.2); }
-  .scard-tag { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border: 0.5px solid rgba(242,237,228,0.3); color: var(--creme); margin-bottom: 12px; display: inline-block; }
-  .scard-name { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--noir); margin-bottom: 14px; }
-  .service-card.featured .scard-name { color: var(--creme); }
-  .scard-desc { font-size: 13px; line-height: 1.9; color: var(--brun-mid); margin-bottom: 28px; opacity: 0.7; }
-  .service-card.featured .scard-desc { color: var(--creme-dark); opacity: 0.75; }
-  .scard-price { font-size: 12px; letter-spacing: 0.1em; color: var(--bordeaux); border-top: 0.5px solid var(--creme-dark); padding-top: 20px; }
-  .service-card.featured .scard-price { color: var(--creme-mid); border-top-color: rgba(242,237,228,0.2); }
+/* MANIFESTE */
+.manifeste { background: var(--blanc); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+.manifeste-l { position: sticky; top: 40px; }
+.manifeste-deco { width: 80px; height: 80px; border-radius: 50%; border: 0.5px solid var(--creme2); margin-top: 32px; display: flex; align-items: center; justify-content: center; }
+.manifeste-deco::after { content: '✦'; font-size: 18px; color: var(--bord3); opacity: 0.5; }
+/* TEXTE MANIFESTE — modifie les paragraphes ici */
+.manifeste-r p { font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 2.2; color: var(--brun2); margin-bottom: 24px; font-weight: 300; opacity: 0.85; }
+.manifeste-r p:first-child { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--brun); line-height: 1.75; opacity: 1; margin-bottom: 32px; }
+.manifeste-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--creme2); margin-top: 56px; }
+.mstat { background: var(--blanc); padding: 32px 24px; }
+/* CHIFFRES CLÉS — modifie ici */
+.mstat-n { font-size: 44px; color: var(--bord2); line-height: 1; margin-bottom: 8px; }
+.mstat-l { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sable); }
 
-  .methode { background: var(--noir); }
-  .methode .section-label { color: var(--bordeaux-light); }
-  .methode .section-label::before { background: var(--bordeaux-light); }
-  .methode .section-title { color: var(--creme); }
-  .methode .section-title em { color: var(--bordeaux-light); }
-  .methode-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(242,237,228,0.06); margin-top: 72px; }
-  .methode-step { background: var(--noir); padding: 48px 32px; }
-  .mstep-num { font-family: 'DM Serif Display', serif; font-size: 64px; color: rgba(242,237,228,0.08); line-height: 1; margin-bottom: 24px; }
-  .mstep-bar { width: 24px; height: 1px; background: var(--bordeaux-light); margin-bottom: 20px; }
-  .mstep-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--creme); margin-bottom: 14px; }
-  .mstep-desc { font-size: 12px; line-height: 1.9; color: var(--sable); opacity: 0.5; }
+/* SERVICES */
+.services { background: var(--creme); position: relative; overflow: hidden; }
+.services::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: var(--bord4); opacity: 0.06; }
+.services-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; position: relative; }
+.services-note { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--brun2); opacity: 0.45; max-width: 180px; text-align: right; line-height: 1.8; font-weight: 300; }
+.services-list { display: flex; flex-direction: column; gap: 1px; background: var(--creme2); position: relative; }
+.srow { background: var(--creme); padding: 44px 56px; display: grid; grid-template-columns: 72px 1fr 1.2fr auto; gap: 40px; align-items: center; border-left: 2px solid transparent; transition: all 0.4s; }
+.srow:hover { border-left-color: var(--bord); background: var(--blanc); }
+.srow.feat { background: var(--bord); border-left-color: var(--bord2); }
+.srow.feat:hover { background: var(--bord2); }
+.srow-n { font-size: 34px; font-style: italic; color: var(--creme2); }
+.srow.feat .srow-n { color: rgba(240,233,223,0.2); }
+.srow-head { display: flex; flex-direction: column; gap: 6px; }
+.srow-tag { font-family: 'DM Sans', sans-serif; font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 10px; border: 0.5px solid rgba(240,233,223,0.3); color: var(--creme); display: inline-block; align-self: flex-start; }
+/* FORMULES — modifie noms, descriptions et prix ici */
+.srow-name { font-size: 24px; font-style: italic; color: var(--brun); }
+.srow.feat .srow-name { color: var(--creme); }
+.srow-desc { font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.9; color: var(--brun2); opacity: 0.65; font-weight: 300; }
+.srow.feat .srow-desc { color: var(--creme2); opacity: 0.75; }
+.srow-price { font-size: 14px; font-style: italic; color: var(--bord); white-space: nowrap; }
+.srow.feat .srow-price { color: var(--creme3); }
 
-  .contact { background: var(--creme); }
-  .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 96px; margin-top: 72px; align-items: start; }
-  .contact-left p { font-size: 13px; line-height: 2; color: var(--brun-mid); margin-bottom: 40px; opacity: 0.8; }
-  .contact-details { display: flex; flex-direction: column; gap: 20px; }
-  .cdetail { display: flex; gap: 20px; align-items: baseline; }
-  .cdetail-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--bordeaux); min-width: 72px; }
-  .cdetail-val { font-size: 13px; color: var(--brun-mid); opacity: 0.6; }
+/* MÉTHODE */
+.methode { background: var(--brun); position: relative; overflow: hidden; }
+.methode::before { content: ''; position: absolute; bottom: -120px; left: -120px; width: 480px; height: 480px; border-radius: 50%; background: var(--bord); opacity: 0.12; }
+.methode .lbl { color: var(--bord4); }
+.methode .lbl::before { background: var(--bord4); }
+.methode .stitle { color: var(--creme); }
+.methode .stitle em { color: var(--bord4); }
+.methode-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(240,233,223,0.06); margin-top: 72px; position: relative; }
+.mstep { background: var(--brun); padding: 48px 32px; }
+.mstep-n { font-size: 60px; font-style: italic; color: rgba(240,233,223,0.07); line-height: 1; margin-bottom: 24px; }
+.mstep-bar { width: 24px; height: 0.5px; background: var(--bord4); margin-bottom: 20px; }
+/* ÉTAPES — modifie titres et descriptions ici */
+.mstep-t { font-size: 20px; font-style: italic; color: var(--creme); margin-bottom: 12px; }
+.mstep-d { font-family: 'DM Sans', sans-serif; font-size: 12px; line-height: 1.9; color: var(--sable); opacity: 0.55; font-weight: 300; }
 
-  .contact-form { display: flex; flex-direction: column; }
-  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 0.5px solid var(--creme-dark); }
-  .form-row-2 .form-field { border-bottom: none; padding: 24px 0; }
-  .form-row-2 .form-field:first-child { padding-right: 32px; border-right: 0.5px solid var(--creme-dark); }
-  .form-row-2 .form-field:last-child { padding-left: 32px; }
-  .form-field { display: flex; flex-direction: column; gap: 10px; border-bottom: 0.5px solid var(--creme-dark); padding: 24px 0; }
-  .form-field label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); }
-  .form-field input, .form-field select, .form-field textarea { background: transparent; border: none; outline: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--noir); padding: 4px 0; -webkit-appearance: none; width: 100%; }
-  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--creme-mid); }
-  .form-field select option { background: var(--creme); color: var(--noir); }
-  .form-field textarea { resize: none; height: 80px; }
-  .form-submit-row { padding-top: 40px; display: flex; align-items: center; justify-content: space-between; }
-  .form-submit { background: var(--noir); border: none; color: var(--creme); font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 18px 56px; cursor: pointer; transition: all 0.4s; }
-  .form-submit:hover { background: var(--brun); }
-  .form-note { font-size: 10px; color: var(--brun-mid); opacity: 0.4; letter-spacing: 0.05em; }
+/* CONTACT */
+.contact { background: var(--creme); position: relative; overflow: hidden; }
+.contact::after { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: var(--bord4); opacity: 0.07; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 96px; margin-top: 72px; align-items: start; position: relative; }
+/* TEXTE CONTACT — modifie ici */
+.contact-left p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 2; color: var(--brun2); margin-bottom: 40px; font-weight: 300; opacity: 0.8; }
+.cdetails { display: flex; flex-direction: column; gap: 18px; }
+.cdetail { display: flex; gap: 20px; align-items: baseline; }
+.cdetail-l { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--bord2); min-width: 72px; }
+.cdetail-v { font-size: 14px; font-style: italic; color: var(--brun2); opacity: 0.6; }
 
-  footer { padding: 32px 72px; background: var(--noir); display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 22px; font-style: italic; color: var(--creme); letter-spacing: 0.04em; }
-  .footer-copy { font-size: 10px; color: var(--sable); opacity: 0.35; letter-spacing: 0.1em; }
+/* FORMULAIRE */
+.form { display: flex; flex-direction: column; }
+.form-2 { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid var(--creme2); }
+.form-2 .ff { border-bottom: none; padding: 24px 0; }
+.form-2 .ff:first-child { padding-right: 32px; border-right: 0.5px solid var(--creme2); }
+.form-2 .ff:last-child { padding-left: 32px; }
+.ff { display: flex; flex-direction: column; gap: 10px; border-bottom: 0.5px solid var(--creme2); padding: 24px 0; }
+.ff label { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bord2); }
+.ff input, .ff select, .ff textarea { background: transparent; border: none; outline: none; font-family: 'DM Serif Display', serif; font-size: 15px; font-style: italic; color: var(--brun); padding: 4px 0; -webkit-appearance: none; width: 100%; }
+.ff input::placeholder, .ff textarea::placeholder { color: var(--creme3); font-style: italic; }
+.ff select option { background: var(--creme); color: var(--brun); }
+.ff textarea { resize: none; height: 80px; }
+.form-foot { padding-top: 40px; display: flex; align-items: center; justify-content: space-between; }
+/* BOUTON ENVOYER */
+.btn-send { background: var(--brun); border: none; color: var(--creme); font-family: 'DM Serif Display', serif; font-size: 14px; font-style: italic; letter-spacing: 0.08em; padding: 18px 56px; cursor: pointer; transition: all 0.4s; }
+.btn-send:hover { background: var(--bord); }
+.form-note { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--brun2); opacity: 0.35; letter-spacing: 0.05em; }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-left > * { animation: fadeUp 0.9s ease forwards; opacity: 0; }
-  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.35s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.5s; }
-  .hero-left > *:nth-child(5) { animation-delay: 0.65s; }
-  .hero-left > *:nth-child(6) { animation-delay: 0.8s; }
+/* FOOTER */
+footer { padding: 36px 72px; background: var(--brun); display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { font-size: 22px; font-style: italic; color: var(--creme); letter-spacing: 0.05em; }
+.footer-copy { font-family: 'DM Sans', sans-serif; font-size: 10px; color: var(--sable); opacity: 0.35; letter-spacing: 0.1em; }
 
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 60px 24px; }
-    section { padding: 72px 24px; }
-    .manifeste { grid-template-columns: 1fr; gap: 40px; }
-    .manifeste-left { position: static; }
-    .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .methode-grid { grid-template-columns: 1fr 1fr; }
-    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-    .form-row-2 { grid-template-columns: 1fr; border-bottom: none; }
-    .form-row-2 .form-field:first-child { border-right: none; padding-right: 0; border-bottom: 0.5px solid var(--creme-dark); }
-    .form-row-2 .form-field:last-child { padding-left: 0; }
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
-    .manifeste-stats { grid-template-columns: 1fr; }
-  }
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.hero-left > * { animation: fadeUp 1s ease forwards; opacity:0; }
+.hero-left > *:nth-child(1) { animation-delay:0.1s; }
+.hero-left > *:nth-child(2) { animation-delay:0.25s; }
+.hero-left > *:nth-child(3) { animation-delay:0.4s; }
+.hero-left > *:nth-child(4) { animation-delay:0.55s; }
+.hero-left > *:nth-child(5) { animation-delay:0.7s; }
+.hero-left > *:nth-child(6) { animation-delay:0.85s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 60px 24px; }
+  section { padding: 72px 24px; }
+  .manifeste { grid-template-columns: 1fr; gap: 40px; }
+  .manifeste-l { position: static; }
+  .services-hd { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .srow { grid-template-columns: 1fr; gap: 12px; padding: 32px 24px; }
+  .methode-grid { grid-template-columns: 1fr 1fr; }
+  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+  .form-2 { grid-template-columns: 1fr; border-bottom: none; }
+  .form-2 .ff:first-child { border-right: none; padding-right: 0; border-bottom: 0.5px solid var(--creme2); }
+  .form-2 .ff:last-child { padding-left: 0; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+  .manifeste-stats { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
 <nav>
   <!-- NOM DANS LA NAV — modifie ici -->
-  <div class="nav-logo">Da Gia'</div>
+  <div class="nav-logo">Casa Gia'</div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">Manifeste</a></li>
@@ -169,127 +241,124 @@
 
 <div class="hero">
   <div class="hero-left">
-    <!-- NOM DE MARQUE — modifie ici -->
-    <div class="hero-name">Da Gia'</div>
     <!-- SOUS-TITRE — modifie ici -->
-    <div class="hero-eyebrow">Architecture d'intérieur · À distance</div>
+    <div class="hero-tag">Architecture d'intérieur · À distance</div>
+    <!-- NOM MARQUE — modifie ici -->
+    <div class="hero-name">Casa Gia'</div>
     <!-- TITRE PRINCIPAL — modifie ici -->
-    <h1 class="hero-title">L'espace<br>comme<br><em>langage.</em></h1>
+    <h1 class="hero-title">L'espace<br>comme<br><span>langage.</span></h1>
     <!-- DESCRIPTION — modifie ici -->
     <p class="hero-desc">Un accompagnement sur mesure pour transformer votre intérieur en une extension silencieuse de qui vous êtes.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn-noir">Démarrer un projet</a>
-      <a href="#services" class="btn-link">Nos formules</a>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-main">Démarrer un projet</a>
+      <a href="#services" class="btn-ghost">Nos formules</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-right-bg">
-      <div class="hero-shape-1"></div>
-      <div class="hero-shape-2"></div>
-    </div>
-    <div class="hero-big-text">Gia</div>
-    <div class="hero-card">
-      <!-- RÉSEAUX ET CITATION — modifie ici -->
-      <div class="hero-card-tag"><span>@dagia</span><span>dagia.fr</span></div>
-      <div class="hero-card-quote">"Chaque espace raconte une histoire. Laissez-moi écrire la vôtre."</div>
+    <div class="hr-circle1"></div>
+    <div class="hr-circle2"></div>
+    <div class="hr-blob"></div>
+    <div class="hr-blob2"></div>
+    <div class="hr-watermark">Gia</div>
+    <!-- CARTE CITATION — modifie ici -->
+    <div class="hr-card">
+      <div class="hr-card-header">
+        <span class="hr-card-tag">@casagia</span>
+        <span class="hr-card-tag">casagia.fr</span>
+      </div>
+      <div class="hr-card-quote">"Chaque espace raconte une histoire.<br>Laissez-moi écrire la vôtre."</div>
     </div>
   </div>
 </div>
 
 <section class="manifeste" id="about">
-  <div class="manifeste-left">
-    <div class="section-label">Manifeste</div>
-    <h2 class="section-title">Une sensibilité<br><em>organique</em></h2>
+  <div class="manifeste-l">
+    <div class="lbl">Manifeste</div>
+    <h2 class="stitle">Une sensibilité<br><em>organique</em></h2>
+    <div class="manifeste-deco"></div>
   </div>
-  <div class="manifeste-right">
-    <!-- TEXTE À PROPOS — modifie les 3 paragraphes ici -->
+  <div class="manifeste-r">
+    <!-- TEXTE À PROPOS — modifie les paragraphes ici -->
     <p>Je crois que l'intérieur est la première chose que l'on ressent avant même de la voir. Une matière, une lumière, une proportion — tout parle.</p>
     <p>Architecte d'intérieur de formation, j'ai acquis 4 ans d'expérience professionnelle dans le domaine, forgeant une sensibilité unique pour les matières nobles, les volumes généreux et les palettes qui durent.</p>
-    <p>Da Gia' est née d'une conviction : chaque intérieur mérite d'être pensé avec autant de soin qu'une collection de mode. Entièrement à distance, sans compromis sur la qualité.</p>
+    <p>Casa Gia est née d'une conviction : chaque intérieur mérite d'être pensé avec autant de soin qu'une collection de mode. Entièrement à distance, sans compromis sur la qualité.</p>
     <!-- CHIFFRES CLÉS — modifie ici -->
     <div class="manifeste-stats">
-      <div class="mstat"><div class="mstat-num">4</div><div class="mstat-lbl">Années d'expérience</div></div>
-      <div class="mstat"><div class="mstat-num">5j</div><div class="mstat-lbl">Délai de livraison</div></div>
-      <div class="mstat"><div class="mstat-num">100%</div><div class="mstat-lbl">Sur mesure</div></div>
+      <div class="mstat"><div class="mstat-n">4</div><div class="mstat-l">Années d'expérience</div></div>
+      <div class="mstat"><div class="mstat-n">5j</div><div class="mstat-l">Délai de livraison</div></div>
+      <div class="mstat"><div class="mstat-n">100%</div><div class="mstat-l">Sur mesure</div></div>
     </div>
   </div>
 </section>
 
 <section class="services" id="services">
-  <div class="services-header">
+  <div class="services-hd">
     <div>
-      <div class="section-label">Formules</div>
-      <h2 class="section-title">Choisissez votre<br><em>accompagnement</em></h2>
+      <div class="lbl">Formules</div>
+      <h2 class="stitle">Choisissez votre<br><em>accompagnement</em></h2>
     </div>
     <div class="services-note">Chaque formule s'adapte à votre espace et votre budget.</div>
   </div>
-  <div class="services-grid">
+  <div class="services-list">
     <!-- FORMULE 1 — modifie nom, description et prix ici -->
-    <div class="service-card">
-      <div class="scard-num">01</div>
-      <div class="scard-name">Essentiel</div>
-      <p class="scard-desc">Moodboard inspirant, 3 conseils personnalisés et liste de produits sélectionnés.</p>
-      <div class="scard-price">À partir de 100 €</div>
+    <div class="srow">
+      <div class="srow-n">01</div>
+      <div class="srow-head"><div class="srow-name">Essentiel</div></div>
+      <div class="srow-desc">Moodboard inspirant, 3 conseils personnalisés et liste de produits sélectionnés pour votre espace.</div>
+      <div class="srow-price">À partir de 100 €</div>
     </div>
     <!-- FORMULE 2 recommandée — modifie ici -->
-    <div class="service-card featured">
-      <div class="scard-num">02</div>
-      <div class="scard-tag">Recommandé</div>
-      <div class="scard-name">Confort</div>
-      <p class="scard-desc">Moodboard complet, plan 2D et liste shopping commentée avec liens directs.</p>
-      <div class="scard-price">À partir de 200 €</div>
+    <div class="srow feat">
+      <div class="srow-n">02</div>
+      <div class="srow-head"><div class="srow-tag">Recommandé</div><div class="srow-name">Confort</div></div>
+      <div class="srow-desc">Moodboard complet, plan 2D et liste shopping commentée avec liens directs vers les produits.</div>
+      <div class="srow-price">À partir de 200 €</div>
     </div>
     <!-- FORMULE 3 — modifie nom, description et prix ici -->
-    <div class="service-card">
-      <div class="scard-num">03</div>
-      <div class="scard-name">Premium</div>
-      <p class="scard-desc">Tout inclus + suivi WhatsApp 2 semaines pour accompagner la réalisation.</p>
-      <div class="scard-price">À partir de 350 €</div>
+    <div class="srow">
+      <div class="srow-n">03</div>
+      <div class="srow-head"><div class="srow-name">Premium</div></div>
+      <div class="srow-desc">Tout inclus + suivi WhatsApp 2 semaines pour vous accompagner dans la réalisation.</div>
+      <div class="srow-price">À partir de 350 €</div>
     </div>
   </div>
 </section>
 
 <section class="methode" id="methode">
-  <div class="section-label">La méthode</div>
-  <h2 class="section-title">Quatre étapes,<br><em>une transformation</em></h2>
+  <div class="lbl">La méthode</div>
+  <h2 class="stitle">Quatre étapes,<br><em>une transformation</em></h2>
   <div class="methode-grid">
     <!-- ÉTAPES — modifie titres et descriptions ici -->
-    <div class="methode-step"><div class="mstep-num">01</div><div class="mstep-bar"></div><div class="mstep-title">Questionnaire</div><p class="mstep-desc">Style, budget, contraintes — tout est capturé avec précision.</p></div>
-    <div class="methode-step"><div class="mstep-num">02</div><div class="mstep-bar"></div><div class="mstep-title">Photos & mesures</div><p class="mstep-desc">Vous documentez votre espace, je l'analyse avec attention.</p></div>
-    <div class="methode-step"><div class="mstep-num">03</div><div class="mstep-bar"></div><div class="mstep-title">Création</div><p class="mstep-desc">Plan, moodboard, sélection — 5 jours de conception pure.</p></div>
-    <div class="methode-step"><div class="mstep-num">04</div><div class="mstep-bar"></div><div class="mstep-title">Livraison</div><p class="mstep-desc">Un PDF complet avec tout pour réaliser votre projet.</p></div>
+    <div class="mstep"><div class="mstep-n">01</div><div class="mstep-bar"></div><div class="mstep-t">Questionnaire</div><p class="mstep-d">Style, budget, contraintes — tout est capturé avec précision.</p></div>
+    <div class="mstep"><div class="mstep-n">02</div><div class="mstep-bar"></div><div class="mstep-t">Photos & mesures</div><p class="mstep-d">Vous documentez votre espace, je l'analyse avec attention.</p></div>
+    <div class="mstep"><div class="mstep-n">03</div><div class="mstep-bar"></div><div class="mstep-t">Création</div><p class="mstep-d">Plan, moodboard, sélection — 5 jours de conception pure.</p></div>
+    <div class="mstep"><div class="mstep-n">04</div><div class="mstep-bar"></div><div class="mstep-t">Livraison</div><p class="mstep-d">Un PDF complet avec tout pour réaliser votre projet.</p></div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="section-label">Contact</div>
-  <h2 class="section-title">Commençons<br><em>votre projet</em></h2>
+  <div class="lbl">Contact</div>
+  <h2 class="stitle">Commençons<br><em>votre projet</em></h2>
   <div class="contact-layout">
     <div class="contact-left">
       <!-- TEXTE CONTACT — modifie ici -->
       <p>Décrivez-moi votre espace et vos envies. Chaque projet est unique — je vous réponds sous 48h avec une proposition sur mesure.</p>
-      <div class="contact-details">
-        <div class="cdetail"><span class="cdetail-label">Réponse</span><span class="cdetail-val">Sous 48h</span></div>
-        <div class="cdetail"><span class="cdetail-label">Délai</span><span class="cdetail-val">5 à 7 jours ouvrés</span></div>
-        <div class="cdetail"><span class="cdetail-label">Format</span><span class="cdetail-val">PDF + liste shopping</span></div>
-        <div class="cdetail"><span class="cdetail-label">Suivi</span><span class="cdetail-val">WhatsApp (Premium)</span></div>
+      <div class="cdetails">
+        <div class="cdetail"><span class="cdetail-l">Réponse</span><span class="cdetail-v">Sous 48h</span></div>
+        <div class="cdetail"><span class="cdetail-l">Délai</span><span class="cdetail-v">5 à 7 jours ouvrés</span></div>
+        <div class="cdetail"><span class="cdetail-l">Format</span><span class="cdetail-v">PDF + liste shopping</span></div>
+        <div class="cdetail"><span class="cdetail-l">Suivi</span><span class="cdetail-v">WhatsApp (Premium)</span></div>
       </div>
     </div>
     <!-- FORMULAIRE — remplace "VOTRE_LIEN_FORMSPREE" par ton lien Formspree -->
     <!-- Exemple : action="https://formspree.io/f/abcdefgh" -->
-    <form class="contact-form" action="VOTRE_LIEN_FORMSPREE" method="POST">
-      <div class="form-row-2">
-        <div class="form-field">
-          <label>Prénom</label>
-          <input type="text" name="prenom" placeholder="Marie">
-        </div>
-        <div class="form-field">
-          <label>Nom</label>
-          <input type="text" name="nom" placeholder="Dupont">
-        </div>
+    <form class="form" action="VOTRE_LIEN_FORMSPREE" method="POST">
+      <div class="form-2">
+        <div class="ff"><label>Prénom</label><input type="text" name="prenom" placeholder="Marie"></div>
+        <div class="ff"><label>Nom</label><input type="text" name="nom" placeholder="Dupont"></div>
       </div>
-      <div class="form-field"><label>Email</label><input type="email" name="email" placeholder="marie@exemple.fr"></div>
-      <div class="form-field">
+      <div class="ff"><label>Email</label><input type="email" name="email" placeholder="marie@exemple.fr"></div>
+      <div class="ff">
         <label>Formule souhaitée</label>
         <select name="formule">
           <option value="">Choisissez...</option>
@@ -298,9 +367,9 @@
           <option>Premium — à partir de 350 €</option>
         </select>
       </div>
-      <div class="form-field"><label>Votre projet</label><textarea name="message" placeholder="Décrivez votre espace, vos envies, votre budget..."></textarea></div>
-      <div class="form-submit-row">
-        <button type="submit" class="form-submit">Envoyer</button>
+      <div class="ff"><label>Votre projet</label><textarea name="message" placeholder="Décrivez votre espace, vos envies, votre budget..."></textarea></div>
+      <div class="form-foot">
+        <button type="submit" class="btn-send">Envoyer</button>
         <span class="form-note">Réponse sous 48h</span>
       </div>
     </form>
@@ -308,9 +377,9 @@
 </section>
 
 <footer>
-  <div class="footer-logo">Da Gia'</div>
+  <div class="footer-logo">Casa Gia'</div>
   <!-- ANNÉE — modifie ici si besoin -->
-  <div class="footer-copy">© 2025 Da Gia' · Tous droits réservés</div>
+  <div class="footer-copy">© 2025 Casa Gia' · Tous droits réservés</div>
 </footer>
 
 </body>

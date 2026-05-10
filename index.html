@@ -4,139 +4,134 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Da Gia' — Architecture d'intérieur</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --kaki: #2C2713;
-    --kaki-mid: #3D3A1E;
-    --kaki-warm: #5C5428;
-    --sable: #F0E8D8;
-    --sable-mid: #E2D5C0;
-    --sable-dark: #C4B49A;
-    --cuir: #311607;
-    --cuir-mid: #6B3318;
-    --cuir-light: #9B5230;
-    --nacre: #D4CFC8;
-    --creme: #FAF6EF;
-    --brun: #1E1208;
+    --creme: #F2EDE4; --creme-dark: #E0D8CC; --creme-mid: #C8BFB0;
+    --sable: #B8A898; --brun: #3D2B1A; --brun-mid: #6B4E35;
+    --bordeaux: #5C1F1F; --bordeaux-mid: #7A3030; --bordeaux-light: #9B4040;
+    --noir: #1A1410; --blanc: #FAF8F4;
   }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Jost', sans-serif; background: var(--creme); color: var(--brun); font-weight: 300; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--blanc); color: var(--noir); font-weight: 300; }
 
-  nav {
-    width: 100%; display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 72px; background: var(--brun);
-  }
-  /* NOM DU SITE — modifie dans le HTML plus bas */
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--sable); letter-spacing: 0.08em; }
+  nav { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 24px 72px; background: var(--blanc); border-bottom: 0.5px solid var(--creme-dark); }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 26px; font-style: italic; color: var(--brun); letter-spacing: 0.04em; }
   .nav-links { display: flex; gap: 48px; list-style: none; }
-  .nav-links a { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--nacre); text-decoration: none; opacity: 0.7; transition: opacity 0.3s; }
-  .nav-links a:hover { opacity: 1; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brun-mid); text-decoration: none; opacity: 0.7; transition: opacity 0.3s; }
+  .nav-links a:hover { opacity: 1; color: var(--bordeaux); }
 
-  .hero { min-height: 94vh; display: grid; grid-template-columns: 1fr 1fr; background: var(--brun); }
-  .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 80px 72px; position: relative; overflow: hidden; }
-  .hero-left::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(160deg, var(--kaki) 0%, var(--brun) 60%); z-index: 0; }
-  .hero-content { position: relative; z-index: 1; }
-  .hero-eyebrow { font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--cuir-light); margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
-  .hero-eyebrow::before { content: ''; width: 40px; height: 0.5px; background: var(--cuir-light); }
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 7vw, 96px); font-weight: 300; line-height: 0.95; letter-spacing: -0.01em; color: var(--sable); margin-bottom: 32px; }
-  /* TITRE HERO — modifie le texte ici */
-  .hero-title em { font-style: italic; color: var(--cuir-light); display: block; }
-  .hero-desc { font-size: 13px; line-height: 2; color: var(--nacre); opacity: 0.65; max-width: 360px; margin-bottom: 56px; letter-spacing: 0.04em; }
+  .hero { min-height: 94vh; display: grid; grid-template-columns: 1fr 1fr; background: var(--blanc); }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 72px; background: var(--creme); }
+  /* NOM DE MARQUE — modifie ici */
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: 18px; font-style: italic; color: var(--brun); letter-spacing: 0.06em; margin-bottom: 14px; opacity: 0.75; }
+  .hero-eyebrow { font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
+  .hero-eyebrow::before { content: ''; width: 40px; height: 0.5px; background: var(--bordeaux); }
+  /* TITRE HERO — modifie ici */
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(52px, 6vw, 84px); line-height: 1.0; color: var(--noir); margin-bottom: 32px; }
+  .hero-title em { font-style: italic; color: var(--bordeaux-mid); display: block; }
+  /* DESCRIPTION HERO — modifie ici */
+  .hero-desc { font-size: 13px; line-height: 2.1; color: var(--brun-mid); max-width: 380px; margin-bottom: 56px; }
   .hero-cta { display: flex; align-items: center; gap: 32px; }
-  .btn-primary { display: inline-block; padding: 15px 40px; background: var(--cuir-light); color: var(--sable); text-decoration: none; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; transition: all 0.4s; font-family: 'Jost', sans-serif; }
-  .btn-primary:hover { background: var(--cuir-mid); }
-  .btn-text { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--nacre); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; display: flex; align-items: center; gap: 10px; }
-  .btn-text::after { content: '→'; font-size: 14px; }
-  .btn-text:hover { opacity: 1; }
+  .btn-noir { display: inline-block; padding: 15px 40px; background: var(--noir); color: var(--creme); text-decoration: none; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; transition: all 0.4s; font-family: 'DM Sans', sans-serif; }
+  .btn-noir:hover { background: var(--brun); }
+  .btn-link { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brun-mid); text-decoration: none; opacity: 0.6; display: flex; align-items: center; gap: 10px; transition: opacity 0.3s; }
+  .btn-link::after { content: '→'; font-size: 14px; }
+  .btn-link:hover { opacity: 1; }
 
-  .hero-right { background: var(--cuir); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .hero-right-inner { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-  .hero-block-1 { position: absolute; width: 60%; height: 70%; background: var(--kaki); opacity: 0.5; top: 10%; left: 5%; }
-  .hero-block-2 { position: absolute; width: 45%; height: 50%; background: var(--cuir-mid); opacity: 0.6; bottom: 8%; right: 8%; }
-  .hero-circle { position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 0.5px solid rgba(212,207,200,0.2); top: 50%; left: 50%; transform: translate(-50%,-50%); }
-  .hero-num { position: absolute; bottom: 48px; right: 48px; font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300; color: rgba(212,207,200,0.06); line-height: 1; letter-spacing: -0.05em; }
-  /* CITATION HERO — modifie ici */
-  .hero-quote { position: absolute; bottom: 48px; left: 48px; font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--nacre); opacity: 0.5; line-height: 1.8; max-width: 220px; }
+  .hero-right { background: var(--bordeaux); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 56px; }
+  .hero-right-bg { position: absolute; inset: 0; }
+  .hero-shape-1 { position: absolute; width: 55%; height: 65%; background: var(--bordeaux-mid); opacity: 0.5; top: 8%; left: 8%; border-radius: 0 0 50% 50% / 0 0 30% 30%; }
+  .hero-shape-2 { position: absolute; width: 40%; height: 45%; background: var(--bordeaux-light); opacity: 0.3; bottom: 12%; right: 10%; }
+  .hero-big-text { position: absolute; top: 40px; right: 40px; font-family: 'DM Serif Display', serif; font-size: 100px; font-style: italic; color: rgba(242,237,228,0.06); line-height: 1; }
+  /* CITATION — modifie ici */
+  .hero-card { position: relative; z-index: 1; background: rgba(242,237,228,0.08); border: 0.5px solid rgba(242,237,228,0.15); padding: 32px; width: 100%; }
+  .hero-card-tag { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--creme-dark); opacity: 0.6; margin-bottom: 16px; display: flex; justify-content: space-between; }
+  .hero-card-quote { font-family: 'DM Serif Display', serif; font-size: 18px; font-style: italic; color: var(--creme); line-height: 1.6; }
 
-  .manifeste { padding: 120px 72px; background: var(--sable); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+  section { padding: 100px 72px; }
+  .section-label { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--bordeaux); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; width: 20px; height: 0.5px; background: var(--bordeaux); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 3.5vw, 52px); line-height: 1.15; color: var(--noir); margin-bottom: 24px; }
+  .section-title em { font-style: italic; color: var(--bordeaux-mid); }
+
+  .manifeste { background: var(--blanc); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
   .manifeste-left { position: sticky; top: 40px; }
-  .section-label { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--cuir-light); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-  .section-label::before { content: ''; width: 20px; height: 0.5px; background: var(--cuir-light); }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1; color: var(--brun); }
-  .section-title em { font-style: italic; color: var(--cuir-mid); }
-  .manifeste-right { padding-top: 16px; }
   /* TEXTE MANIFESTE — modifie les paragraphes ici */
-  .manifeste-right p { font-size: 15px; line-height: 2.1; color: var(--cuir); margin-bottom: 28px; opacity: 0.75; letter-spacing: 0.02em; }
-  .manifeste-right p:first-child { font-size: 18px; font-family: 'Cormorant Garamond', serif; font-style: italic; opacity: 1; color: var(--brun); line-height: 1.8; }
-  .manifeste-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sable-dark); margin-top: 56px; }
-  .mstat { background: var(--sable); padding: 32px 24px; }
-  .mstat-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--cuir-light); line-height: 1; margin-bottom: 8px; }
-  .mstat-lbl { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sable-dark); }
+  .manifeste-right p { font-size: 15px; line-height: 2.1; color: var(--brun-mid); margin-bottom: 24px; opacity: 0.85; }
+  .manifeste-right p:first-child { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--noir); line-height: 1.7; opacity: 1; }
+  .manifeste-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--creme-dark); margin-top: 56px; }
+  .mstat { background: var(--blanc); padding: 32px 24px; }
+  /* CHIFFRES CLÉS — modifie ici */
+  .mstat-num { font-family: 'DM Serif Display', serif; font-size: 44px; color: var(--bordeaux-mid); line-height: 1; margin-bottom: 8px; }
+  .mstat-lbl { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sable); }
 
-  .services { background: var(--kaki); padding: 120px 72px; }
-  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
-  .services .section-label { color: var(--sable-dark); }
-  .services .section-label::before { background: var(--sable-dark); }
-  .services .section-title { color: var(--sable); }
-  .services .section-title em { color: var(--cuir-light); }
-  .services-note { font-size: 12px; color: var(--nacre); opacity: 0.5; max-width: 200px; text-align: right; line-height: 1.8; }
-  .services-list { display: flex; flex-direction: column; gap: 1px; background: rgba(212,207,200,0.08); }
-  .service-row { background: var(--kaki); padding: 48px 56px; display: grid; grid-template-columns: 80px 1fr 1fr auto; gap: 40px; align-items: center; transition: background 0.4s; }
-  .service-row:hover { background: var(--kaki-mid); }
-  .service-row.featured { background: var(--cuir); }
-  .service-row.featured:hover { background: var(--cuir-mid); }
-  .srow-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: rgba(212,207,200,0.2); }
-  .srow-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--sable); }
-  .srow-desc { font-size: 12px; line-height: 1.9; color: var(--nacre); opacity: 0.6; }
-  .srow-price { font-size: 13px; letter-spacing: 0.1em; color: var(--cuir-light); white-space: nowrap; }
-  .service-row.featured .srow-price { color: var(--sable-mid); }
-  .srow-tag { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border: 0.5px solid rgba(212,207,200,0.3); color: var(--nacre); margin-bottom: 8px; display: inline-block; }
+  .services { background: var(--creme); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+  .services-note { font-size: 12px; color: var(--brun-mid); opacity: 0.5; max-width: 180px; text-align: right; line-height: 1.8; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--creme-dark); }
+  .service-card { background: var(--creme); padding: 48px 36px; border-top: 2px solid transparent; transition: border-color 0.3s; }
+  .service-card:hover { border-top-color: var(--bordeaux); }
+  .service-card.featured { background: var(--bordeaux); border-top-color: var(--bordeaux-light); }
+  .scard-num { font-family: 'DM Serif Display', serif; font-size: 40px; color: var(--creme-dark); margin-bottom: 20px; line-height: 1; }
+  .service-card.featured .scard-num { color: rgba(242,237,228,0.2); }
+  .scard-tag { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border: 0.5px solid rgba(242,237,228,0.3); color: var(--creme); margin-bottom: 12px; display: inline-block; }
+  .scard-name { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--noir); margin-bottom: 14px; }
+  .service-card.featured .scard-name { color: var(--creme); }
+  .scard-desc { font-size: 13px; line-height: 1.9; color: var(--brun-mid); margin-bottom: 28px; opacity: 0.7; }
+  .service-card.featured .scard-desc { color: var(--creme-dark); opacity: 0.75; }
+  .scard-price { font-size: 12px; letter-spacing: 0.1em; color: var(--bordeaux); border-top: 0.5px solid var(--creme-dark); padding-top: 20px; }
+  .service-card.featured .scard-price { color: var(--creme-mid); border-top-color: rgba(242,237,228,0.2); }
 
-  .methode { background: var(--sable-mid); padding: 120px 72px; }
-  .methode-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--sable-dark); margin-top: 72px; }
-  .methode-step { background: var(--sable-mid); padding: 48px 32px; }
-  .mstep-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--sable-dark); line-height: 1; margin-bottom: 24px; }
-  .mstep-bar { width: 24px; height: 1px; background: var(--cuir-mid); margin-bottom: 20px; }
-  .mstep-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--brun); margin-bottom: 14px; }
-  .mstep-desc { font-size: 12px; line-height: 1.9; color: var(--cuir); opacity: 0.6; }
+  .methode { background: var(--noir); }
+  .methode .section-label { color: var(--bordeaux-light); }
+  .methode .section-label::before { background: var(--bordeaux-light); }
+  .methode .section-title { color: var(--creme); }
+  .methode .section-title em { color: var(--bordeaux-light); }
+  .methode-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(242,237,228,0.06); margin-top: 72px; }
+  .methode-step { background: var(--noir); padding: 48px 32px; }
+  .mstep-num { font-family: 'DM Serif Display', serif; font-size: 64px; color: rgba(242,237,228,0.08); line-height: 1; margin-bottom: 24px; }
+  .mstep-bar { width: 24px; height: 1px; background: var(--bordeaux-light); margin-bottom: 20px; }
+  .mstep-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--creme); margin-bottom: 14px; }
+  .mstep-desc { font-size: 12px; line-height: 1.9; color: var(--sable); opacity: 0.5; }
 
-  .contact { background: var(--brun); padding: 120px 72px; }
-  .contact .section-label { color: var(--cuir-light); }
-  .contact .section-label::before { background: var(--cuir-light); }
-  .contact .section-title { color: var(--sable); }
-  .contact .section-title em { color: var(--cuir-light); }
+  .contact { background: var(--creme); }
   .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 96px; margin-top: 72px; align-items: start; }
-  .contact-left p { font-size: 13px; line-height: 2; color: var(--nacre); opacity: 0.6; margin-bottom: 40px; letter-spacing: 0.03em; }
+  .contact-left p { font-size: 13px; line-height: 2; color: var(--brun-mid); margin-bottom: 40px; opacity: 0.8; }
   .contact-details { display: flex; flex-direction: column; gap: 20px; }
   .cdetail { display: flex; gap: 20px; align-items: baseline; }
-  .cdetail-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cuir-light); min-width: 72px; }
-  .cdetail-val { font-size: 13px; color: var(--nacre); opacity: 0.55; }
-  .contact-form { display: flex; flex-direction: column; gap: 0; }
-  .form-field { display: flex; flex-direction: column; gap: 10px; border-bottom: 0.5px solid rgba(212,207,200,0.12); padding: 24px 0; }
-  .form-field:first-child { padding-top: 0; }
-  .form-field label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--cuir-light); }
-  .form-field input, .form-field select, .form-field textarea { background: transparent; border: none; outline: none; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: var(--sable); letter-spacing: 0.02em; padding: 4px 0; -webkit-appearance: none; }
-  .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(212,207,200,0.2); }
-  .form-field select option { background: var(--brun); color: var(--sable); }
-  .form-field textarea { resize: none; height: 80px; }
-  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .form-submit-row { padding-top: 40px; display: flex; align-items: center; justify-content: space-between; }
-  .form-submit { background: transparent; border: 0.5px solid var(--cuir-light); color: var(--cuir-light); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 16px 40px; cursor: pointer; transition: all 0.4s; }
-  .form-submit:hover { background: var(--cuir-light); color: var(--sable); }
-  .form-note { font-size: 10px; color: var(--nacre); opacity: 0.3; letter-spacing: 0.05em; }
+  .cdetail-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--bordeaux); min-width: 72px; }
+  .cdetail-val { font-size: 13px; color: var(--brun-mid); opacity: 0.6; }
 
-  footer { padding: 32px 72px; background: var(--cuir); display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; font-style: italic; color: var(--sable); letter-spacing: 0.08em; }
-  .footer-copy { font-size: 10px; color: var(--nacre); opacity: 0.35; letter-spacing: 0.1em; }
+  .contact-form { display: flex; flex-direction: column; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 0.5px solid var(--creme-dark); }
+  .form-row-2 .form-field { border-bottom: none; padding: 24px 0; }
+  .form-row-2 .form-field:first-child { padding-right: 32px; border-right: 0.5px solid var(--creme-dark); }
+  .form-row-2 .form-field:last-child { padding-left: 32px; }
+  .form-field { display: flex; flex-direction: column; gap: 10px; border-bottom: 0.5px solid var(--creme-dark); padding: 24px 0; }
+  .form-field label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); }
+  .form-field input, .form-field select, .form-field textarea { background: transparent; border: none; outline: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--noir); padding: 4px 0; -webkit-appearance: none; width: 100%; }
+  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--creme-mid); }
+  .form-field select option { background: var(--creme); color: var(--noir); }
+  .form-field textarea { resize: none; height: 80px; }
+  .form-submit-row { padding-top: 40px; display: flex; align-items: center; justify-content: space-between; }
+  .form-submit { background: var(--noir); border: none; color: var(--creme); font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 18px 56px; cursor: pointer; transition: all 0.4s; }
+  .form-submit:hover { background: var(--brun); }
+  .form-note { font-size: 10px; color: var(--brun-mid); opacity: 0.4; letter-spacing: 0.05em; }
+
+  footer { padding: 32px 72px; background: var(--noir); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 22px; font-style: italic; color: var(--creme); letter-spacing: 0.04em; }
+  .footer-copy { font-size: 10px; color: var(--sable); opacity: 0.35; letter-spacing: 0.1em; }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-content > * { animation: fadeUp 1s ease forwards; opacity: 0; }
-  .hero-content > *:nth-child(1) { animation-delay: 0.15s; }
-  .hero-content > *:nth-child(2) { animation-delay: 0.3s; }
-  .hero-content > *:nth-child(3) { animation-delay: 0.5s; }
-  .hero-content > *:nth-child(4) { animation-delay: 0.7s; }
+  .hero-left > * { animation: fadeUp 0.9s ease forwards; opacity: 0; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.5s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.65s; }
+  .hero-left > *:nth-child(6) { animation-delay: 0.8s; }
 
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
@@ -144,16 +139,16 @@
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
     .hero-left { padding: 60px 24px; }
-    .manifeste { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+    section { padding: 72px 24px; }
+    .manifeste { grid-template-columns: 1fr; gap: 40px; }
     .manifeste-left { position: static; }
-    .services { padding: 72px 24px; }
     .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .service-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 24px; }
-    .methode { padding: 72px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
     .methode-grid { grid-template-columns: 1fr 1fr; }
-    .contact { padding: 72px 24px; }
     .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-    .form-row-2 { grid-template-columns: 1fr; gap: 0; }
+    .form-row-2 { grid-template-columns: 1fr; border-bottom: none; }
+    .form-row-2 .form-field:first-child { border-right: none; padding-right: 0; border-bottom: 0.5px solid var(--creme-dark); }
+    .form-row-2 .form-field:last-child { padding-left: 0; }
     footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
     .manifeste-stats { grid-template-columns: 1fr; }
   }
@@ -162,7 +157,7 @@
 <body>
 
 <nav>
-  <!-- NOM DU SITE — modifie ici -->
+  <!-- NOM DANS LA NAV — modifie ici -->
   <div class="nav-logo">Da Gia'</div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -174,31 +169,29 @@
 
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-content">
-      <!-- SOUS-TITRE HERO — modifie ici -->
-      <div class="hero-eyebrow">Architecture d'intérieur · À distance</div>
-      <!-- TITRE HERO — modifie ici -->
-      <h1 class="hero-title">
-        L'espace<br>
-        comme<br>
-        <em>langage.</em>
-      </h1>
-      <!-- DESCRIPTION HERO — modifie ici -->
-      <p class="hero-desc">Un accompagnement sur mesure pour transformer votre intérieur en une extension silencieuse de qui vous êtes.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn-primary">Démarrer un projet</a>
-        <a href="#services" class="btn-text">Nos formules</a>
-      </div>
+    <!-- NOM DE MARQUE — modifie ici -->
+    <div class="hero-name">Da Gia'</div>
+    <!-- SOUS-TITRE — modifie ici -->
+    <div class="hero-eyebrow">Architecture d'intérieur · À distance</div>
+    <!-- TITRE PRINCIPAL — modifie ici -->
+    <h1 class="hero-title">L'espace<br>comme<br><em>langage.</em></h1>
+    <!-- DESCRIPTION — modifie ici -->
+    <p class="hero-desc">Un accompagnement sur mesure pour transformer votre intérieur en une extension silencieuse de qui vous êtes.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-noir">Démarrer un projet</a>
+      <a href="#services" class="btn-link">Nos formules</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-right-inner">
-      <div class="hero-block-1"></div>
-      <div class="hero-block-2"></div>
-      <div class="hero-circle"></div>
-      <div class="hero-num">01</div>
-      <!-- CITATION — modifie ici -->
-      <div class="hero-quote">"Chaque espace raconte une histoire. Laissez-moi écrire la vôtre."</div>
+    <div class="hero-right-bg">
+      <div class="hero-shape-1"></div>
+      <div class="hero-shape-2"></div>
+    </div>
+    <div class="hero-big-text">Gia</div>
+    <div class="hero-card">
+      <!-- RÉSEAUX ET CITATION — modifie ici -->
+      <div class="hero-card-tag"><span>@dagia</span><span>dagia.fr</span></div>
+      <div class="hero-card-quote">"Chaque espace raconte une histoire. Laissez-moi écrire la vôtre."</div>
     </div>
   </div>
 </div>
@@ -209,11 +202,11 @@
     <h2 class="section-title">Une sensibilité<br><em>organique</em></h2>
   </div>
   <div class="manifeste-right">
-    <!-- TEXTE MANIFESTE — modifie les 3 paragraphes ici -->
+    <!-- TEXTE À PROPOS — modifie les 3 paragraphes ici -->
     <p>Je crois que l'intérieur est la première chose que l'on ressent avant même de la voir. Une matière, une lumière, une proportion — tout parle.</p>
     <p>Architecte d'intérieur de formation, j'ai acquis 4 ans d'expérience professionnelle dans le domaine, forgeant une sensibilité unique pour les matières nobles, les volumes généreux et les palettes qui durent.</p>
     <p>Da Gia' est née d'une conviction : chaque intérieur mérite d'être pensé avec autant de soin qu'une collection de mode. Entièrement à distance, sans compromis sur la qualité.</p>
-    <!-- CHIFFRES CLÉS — modifie les nombres et labels ici -->
+    <!-- CHIFFRES CLÉS — modifie ici -->
     <div class="manifeste-stats">
       <div class="mstat"><div class="mstat-num">4</div><div class="mstat-lbl">Années d'expérience</div></div>
       <div class="mstat"><div class="mstat-num">5j</div><div class="mstat-lbl">Délai de livraison</div></div>
@@ -228,32 +221,30 @@
       <div class="section-label">Formules</div>
       <h2 class="section-title">Choisissez votre<br><em>accompagnement</em></h2>
     </div>
-    <div class="services-note">Chaque formule est pensée pour s'adapter à votre espace et votre budget.</div>
+    <div class="services-note">Chaque formule s'adapte à votre espace et votre budget.</div>
   </div>
-  <div class="services-list">
+  <div class="services-grid">
     <!-- FORMULE 1 — modifie nom, description et prix ici -->
-    <div class="service-row">
-      <div class="srow-num">01</div>
-      <div class="srow-name">Essentiel</div>
-      <div class="srow-desc">Moodboard inspirant, 3 conseils personnalisés et liste de produits sélectionnés.</div>
-      <div class="srow-price">À partir de 80 €</div>
+    <div class="service-card">
+      <div class="scard-num">01</div>
+      <div class="scard-name">Essentiel</div>
+      <p class="scard-desc">Moodboard inspirant, 3 conseils personnalisés et liste de produits sélectionnés.</p>
+      <div class="scard-price">À partir de 100 €</div>
     </div>
-    <!-- FORMULE 2 (recommandée) — modifie ici -->
-    <div class="service-row featured">
-      <div class="srow-num">02</div>
-      <div>
-        <div class="srow-tag">Recommandé</div>
-        <div class="srow-name">Confort</div>
-      </div>
-      <div class="srow-desc">Moodboard complet, plan 2D et liste shopping commentée avec liens directs.</div>
-      <div class="srow-price">À partir de 180 €</div>
+    <!-- FORMULE 2 recommandée — modifie ici -->
+    <div class="service-card featured">
+      <div class="scard-num">02</div>
+      <div class="scard-tag">Recommandé</div>
+      <div class="scard-name">Confort</div>
+      <p class="scard-desc">Moodboard complet, plan 2D et liste shopping commentée avec liens directs.</p>
+      <div class="scard-price">À partir de 200 €</div>
     </div>
     <!-- FORMULE 3 — modifie nom, description et prix ici -->
-    <div class="service-row">
-      <div class="srow-num">03</div>
-      <div class="srow-name">Premium</div>
-      <div class="srow-desc">Tout inclus + suivi WhatsApp 2 semaines pour accompagner la réalisation.</div>
-      <div class="srow-price">À partir de 350 €</div>
+    <div class="service-card">
+      <div class="scard-num">03</div>
+      <div class="scard-name">Premium</div>
+      <p class="scard-desc">Tout inclus + suivi WhatsApp 2 semaines pour accompagner la réalisation.</p>
+      <div class="scard-price">À partir de 350 €</div>
     </div>
   </div>
 </section>
@@ -263,30 +254,10 @@
   <h2 class="section-title">Quatre étapes,<br><em>une transformation</em></h2>
   <div class="methode-grid">
     <!-- ÉTAPES — modifie titres et descriptions ici -->
-    <div class="methode-step">
-      <div class="mstep-num">01</div>
-      <div class="mstep-bar"></div>
-      <div class="mstep-title">Questionnaire</div>
-      <p class="mstep-desc">Style, budget, contraintes — tout est capturé avec précision.</p>
-    </div>
-    <div class="methode-step">
-      <div class="mstep-num">02</div>
-      <div class="mstep-bar"></div>
-      <div class="mstep-title">Photos & mesures</div>
-      <p class="mstep-desc">Vous documentez votre espace, je l'analyse avec attention.</p>
-    </div>
-    <div class="methode-step">
-      <div class="mstep-num">03</div>
-      <div class="mstep-bar"></div>
-      <div class="mstep-title">Création</div>
-      <p class="mstep-desc">Plan, moodboard, sélection — 5 jours de conception pure.</p>
-    </div>
-    <div class="methode-step">
-      <div class="mstep-num">04</div>
-      <div class="mstep-bar"></div>
-      <div class="mstep-title">Livraison</div>
-      <p class="mstep-desc">Un PDF complet avec tout pour réaliser votre projet.</p>
-    </div>
+    <div class="methode-step"><div class="mstep-num">01</div><div class="mstep-bar"></div><div class="mstep-title">Questionnaire</div><p class="mstep-desc">Style, budget, contraintes — tout est capturé avec précision.</p></div>
+    <div class="methode-step"><div class="mstep-num">02</div><div class="mstep-bar"></div><div class="mstep-title">Photos & mesures</div><p class="mstep-desc">Vous documentez votre espace, je l'analyse avec attention.</p></div>
+    <div class="methode-step"><div class="mstep-num">03</div><div class="mstep-bar"></div><div class="mstep-title">Création</div><p class="mstep-desc">Plan, moodboard, sélection — 5 jours de conception pure.</p></div>
+    <div class="methode-step"><div class="mstep-num">04</div><div class="mstep-bar"></div><div class="mstep-title">Livraison</div><p class="mstep-desc">Un PDF complet avec tout pour réaliser votre projet.</p></div>
   </div>
 </section>
 
@@ -304,7 +275,7 @@
         <div class="cdetail"><span class="cdetail-label">Suivi</span><span class="cdetail-val">WhatsApp (Premium)</span></div>
       </div>
     </div>
-    <!-- FORMULAIRE — IMPORTANT : remplace "VOTRE_LIEN_FORMSPREE" par ton lien Formspree -->
+    <!-- FORMULAIRE — remplace "VOTRE_LIEN_FORMSPREE" par ton lien Formspree -->
     <!-- Exemple : action="https://formspree.io/f/abcdefgh" -->
     <form class="contact-form" action="VOTRE_LIEN_FORMSPREE" method="POST">
       <div class="form-row-2">
@@ -317,23 +288,17 @@
           <input type="text" name="nom" placeholder="Dupont">
         </div>
       </div>
-      <div class="form-field">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="marie@exemple.fr">
-      </div>
+      <div class="form-field"><label>Email</label><input type="email" name="email" placeholder="marie@exemple.fr"></div>
       <div class="form-field">
         <label>Formule souhaitée</label>
         <select name="formule">
           <option value="">Choisissez...</option>
-          <option>Essentiel — à partir de 80 €</option>
-          <option>Confort — à partir de 180 €</option>
+          <option>Essentiel — à partir de 100 €</option>
+          <option>Confort — à partir de 200 €</option>
           <option>Premium — à partir de 350 €</option>
         </select>
       </div>
-      <div class="form-field">
-        <label>Votre projet</label>
-        <textarea name="message" placeholder="Décrivez votre espace, vos envies, votre budget..."></textarea>
-      </div>
+      <div class="form-field"><label>Votre projet</label><textarea name="message" placeholder="Décrivez votre espace, vos envies, votre budget..."></textarea></div>
       <div class="form-submit-row">
         <button type="submit" class="form-submit">Envoyer</button>
         <span class="form-note">Réponse sous 48h</span>

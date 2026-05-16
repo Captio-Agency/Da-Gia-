@@ -215,7 +215,7 @@ nav.solid{background:rgba(237,228,216,.96);box-shadow:0 1px 0 rgba(0,0,0,.06);ba
 .field input::placeholder,.field textarea::placeholder{color:rgba(237,228,216,.15);}
 .field textarea{min-height:72px;}
 .cform-actions{margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
-.send-btn{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--crema);background:transparent;border:1px solid rgba(237,228,216,.2);padding:1.1rem 4.5rem;cursor:none;transition:background .4s,border-color .4s,transform .15s;}
+.send-btn{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--crema);background:transparent;border:1px solid rgba(237,228,216,.2);padding:1.1rem 4.5rem;cursor:auto;transition:background .4s,border-color .4s,transform .15s;}
 .send-btn:hover{background:var(--bronzo);border-color:var(--bronzo);}
 .send-btn:active{transform:scale(.97);}
 .cform-direct{font-size:.73rem;font-weight:300;color:rgba(237,228,216,.3);}
@@ -260,8 +260,7 @@ footer{background:var(--nero);border-top:1px solid rgba(237,228,216,.04);padding
 </head>
 <body>
 
-<div id="cur" aria-hidden="true"></div>
-<div id="cur-ring" aria-hidden="true"></div>
+  
 
 <!-- Symbole soleil SVG global -->
 <svg style="display:none">
@@ -501,14 +500,7 @@ footer{background:var(--nero);border-top:1px solid rgba(237,228,216,.04);padding
 
 <script>
 /* ══ CURSOR ══ */
-const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-let mx=-100,my=-100,rx=-100,ry=-100;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-document.querySelectorAll('a,button,input,select,textarea,.srv,.plan').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cur.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
-});
+
 
 /* ══ NAV ══ */
 const nav=document.getElementById('nav');
